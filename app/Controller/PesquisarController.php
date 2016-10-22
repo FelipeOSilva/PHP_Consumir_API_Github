@@ -1,5 +1,5 @@
 <?php
-require "Model/UsuarioModel.php";
+require_once "Model/UsuarioModel.php";
 /*Classe responsavel pela pesquisa*/
 class PesquisarController{
   /*Metodo estatico para facilitar na hora de chamar a pesquisa */

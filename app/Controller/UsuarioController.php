@@ -1,5 +1,5 @@
 <?php
-require "Controller/PesquisarController.php";
+require_once "Controller/PesquisarController.php";
 
 class UsuarioController{
   function recuperarUsuario($url){

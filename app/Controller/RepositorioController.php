@@ -1,6 +1,5 @@
 <?php
-require "Model/RepositorioModel.php";
-require "Controller/PesquisarController.php";
+require_once "Model/RepositorioModel.php";
 
 class RepositorioController{
   function recuperarRepositorios($url){
