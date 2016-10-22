@@ -1,6 +1,6 @@
 <?php
-/*Classe para salvar os usuarios do retorno
-da pesquisa, realizando os gets e sets*/
+/*Classe para armazenar informações sobre os usuarios
+do  retorno da pesquisa, realizando os gets e sets*/
 class UsuarioModel {
 	private $usuario;
 	private $avatar;
@@ -17,5 +17,4 @@ class UsuarioModel {
 	public function getAvatarUrl(){
 		return $this->avatar;
 	}
-
 }
