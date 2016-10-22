@@ -5,6 +5,12 @@ class UsuarioModel {
 	private $usuario;
 	private $avatar;
 
+  /*Construtor para receber um json e setar os valores nas devidas variaveis*/
+  public function __construct($json){
+		$this->setUsuario($json->login);
+		$this->setAvatarUrl($json->avatar_url);
+	}
+
 	public function setUsuario($usuario){
 		$this->usuario = $usuario;
 	}

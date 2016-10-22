@@ -1,4 +1,5 @@
 <?php
+require "../Model/UsuarioModel.php";
 /*Classe responsavel pela pesquisa*/
 class PesquisaController{
   function pesquisarUsuarios($url){
@@ -19,16 +20,24 @@ class PesquisaController{
     $resultado = json_decode($saida);
     /*Fim do Bloco Curl*/
     /*Verificando se existe usuarios que correspondem a pesquisa*/
-    if(($resultado->total_count)<=0){
-      return "Não possui usuario com esse nome";
+    if(!($resultado->items)){
+      return "Não possui usuário com esse nome";
     }
     else{
-      return var_dump($resultado);
+      /*Criando uma variavel do tipo array para
+      definir um array de objetos do tipo UsuarioModel*/
+      $usuarioModel = array();
+      /*Criando o array de objetos do tipo UsuarioModel*/
+      foreach($resultado->items as $result){
+        $usuarioModel[] = new UsuarioModel($result);
+      }
+      /*Retornando o array de objetos usuarioModel*/
+      return $usuarioModel;
     }
   }
 }
 /*Teste da Classe*/
 $pesquisaController = new PesquisaController;
 $usuariosEncontrados = $pesquisaController->pesquisarUsuarios("https://api.github.com/search/users?q=felipe");
-echo $usuariosEncontrados;
+echo var_dump($usuariosEncontrados);
 ?>
