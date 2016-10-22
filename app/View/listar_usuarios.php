@@ -5,7 +5,7 @@ require "Controller/PesquisarController.php";
 if(isset($_REQUEST['usuario']) && $_GET["usuario"]):
   /*Atribuindo à variavel $usuario o valor enviado por get*/
   $usuario = $_GET['usuario'];
-
+  $usuario = str_replace(" ","",$usuario);
   $pesquisarController = new PesquisarController;
   /*Atribuindo à variavel $usuarios o retorno da pesquisa realizada*/
   $usuarios = $pesquisarController->pesquisarUsuarios('https://api.github.com/search/users?q='.$usuario);
@@ -18,8 +18,10 @@ if(isset($_REQUEST['usuario']) && $_GET["usuario"]):
       <?php foreach ($usuarios as $user):?>
       <li>
           <div class="usuarios">
+            <a href="usuario_info.php?usuario=<?php echo $user->getUsuario();?>" target="_self">
             <img src="<?php echo $user->getAvatarUrl();?>" width="80" height="80" alt="<?php echo $user->getUsuario();?>">
             <h4><?php echo $user->getUsuario();?></h4>
+          </a>
           </div>
       </li>
       <?php endforeach; ?>
