@@ -15,5 +15,4 @@ $usuarioController = new UsuarioController;
 $usuarioEncontrado = $usuarioController->recuperarUsuario("https://api.github.com/users/felipeosilva");
 echo var_dump($usuarioEncontrado);
 */
-
 ?>
