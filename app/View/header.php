@@ -12,6 +12,18 @@
         background-color: #e7e7ee;
         border-radius: 10px;
       }
+      .usuarios img{
+        width: 100px;
+        height: 100px;
+      }
+      li{
+        list-style: none;
+      }
+      .usuarios{
+        float: left;
+        margin: 15px;
+        text-align: center;
+      }
     </style>
   </head>
   <body>
